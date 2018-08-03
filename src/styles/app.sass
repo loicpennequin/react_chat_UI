@@ -1,0 +1,11 @@
+@import "utils/reset.sass"
+@import "utils/typography.scss"
+@import "utils/variables.sass"
+@import "utils/mixins.sass"
+@import "utils/themes.scss"
+
+html
+    +fluid-typo($min_width, $max_width, $min_font, $max_font)
+
+body
+    font-size: 0.95rem

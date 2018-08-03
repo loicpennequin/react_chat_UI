@@ -1,0 +1,23 @@
+{
+	"google-fonts-plugin": {
+		"fonts": [
+			{
+				"family": "Open Sans",
+				"variants": [
+					"400",
+					"700"
+				]
+			},
+			{
+				"family": "Poiret One",
+				"variants": [
+					"400"
+				]
+			},
+			{
+				"family": "IBM Plex Mono"
+			}
+		],
+		"outputDir": "dist/fonts"
+	}
+}

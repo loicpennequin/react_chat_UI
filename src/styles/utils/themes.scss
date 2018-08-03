@@ -1,0 +1,83 @@
+$themeBaseValues: (
+    default: (
+        colors : (
+            primary: hsl(255, 65%, 50%),
+            secondary: hsl(285, 75%, 60%),
+            warning: hsl(49, 100%, 55%),
+            success: hsl(147, 74%, 46%),
+            error: hsl(7, 80%, 56%)
+        ),
+        fonts: (
+            primary: $font-primary,
+            title: $font-title
+        ),
+        font-sizes: (
+            1 : $font-size-1,
+            2 : $font-size-2,
+            3 : $font-size-3,
+            4 : $font-size-4,
+            5 : $font-size-5,
+            6 : $font-size-6,
+            7 : $font-size-7,
+        ),
+        spacings: (
+            1 : $spacing-1,
+            2 : $spacing-2,
+            3 : $spacing-3,
+            4 : $spacing-4,
+            5 : $spacing-5,
+        ),
+        box-shadows: (
+            1 : $box-shadow-1,
+            2 : $box-shadow-2,
+            3 : $box-shadow-3,
+            4 : $box-shadow-4,
+            5 : $box-shadow-5,
+        ),
+        border-radius: (
+            1: $border-radius-1,
+            2: $border-radius-2,
+            3: $border-radius-3,
+            circle: $border-radius-circle,
+        )
+    )
+);
+
+@function themesValuesMap(){
+    $themes: ();
+    @each $key, $value in $themeBaseValues{
+        $theme : ();
+        @each $section, $sectionValue in $value{
+            $themeSection: ();
+            @each $prop, $propValue in $sectionValue{
+                @if $section == 'colors' {
+                    $themeSection : map-merge($themeSection,(
+                        #{$prop} : $propValue,
+                        #{$prop}-dark : darken($propValue, 12.5%),
+                        #{$prop}-darker : darken($propValue, 12.5%),
+                        #{$prop}-light : lighten($propValue, 10%),
+                        #{$prop}-lighter : lighten($propValue, 25%),
+                        #{$prop}-half : transparentize($propValue, 0.5)
+                    ));
+                } @else {
+                    $themeSection : map-merge($themeSection, (#{$prop} : $propValue));
+                }
+            }
+            $theme : map-merge($theme, ($section: $themeSection));
+        }
+        $themes : map-merge($themes, ($key : $theme));
+    }
+    @return $themes
+};
+
+$themes : themesValuesMap();
+
+@each  $key, $value in $themes{
+    .theme-#{$key}{
+        @each $section, $sectionValue in $value {
+            @each $prop, $propValue in $sectionValue{
+                --#{$section}-#{$prop}: #{$propValue};
+            }
+        }
+    }
+}

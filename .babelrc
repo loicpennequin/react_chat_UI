@@ -1,0 +1,26 @@
+{
+    "presets": ["env", "react"],
+    "plugins": [
+        "transform-react-jsx",
+        "syntax-dynamic-import",
+        "transform-class-properties",
+        "transform-react-constant-elements",
+        "transform-decorators-legacy",
+        "react-hot-loader/babel",
+        [
+            "react-css-modules",
+            {
+                "webpackHotModuleReloading": true,
+                "generateScopedName": "[name]-[local]--[hash:base64:5]",
+                "filetypes": {
+                    ".scss": {
+                        "syntax": "postcss-scss",
+                    },
+                    ".sass": {
+                        "syntax": "postcss-sass",
+                    },
+                }
+            }
+        ]
+    ],
+}

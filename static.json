@@ -1,0 +1,10 @@
+{
+    "root" : "dist/",
+    "clean_urls": true,
+    "routes": {
+        "/fonts/*": "/fonts/",
+        "/*.js": "/",
+        "/*.css": "/",
+        "/**": "index.html"
+    }
+}
