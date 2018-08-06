@@ -1,0 +1,73 @@
+.wrapper
+    align-self: center
+    display: flex
+    margin-left: auto
+    margin-right: var(--spacings-2)
+    position: relative
+
+.icon
+    background-color: var(--colors-primary-light)
+    padding: var(--spacings-1)
+    padding-left: var(--spacings-2)
+    display: block
+    border-top-left-radius: var(--border-radius-3)
+    border-bottom-left-radius: var(--border-radius-3)
+
+
+.searchbar
+    color: var(--colors-primary-dark)
+    padding: var(--spacings-1)
+    border: none
+    margin: 0
+    display: block
+    border-top-right-radius: var(--border-radius-3)
+    border-bottom-right-radius: var(--border-radius-3)
+    background-color: var(--colors-secondary-half)
+    transition: all 0.3s
+    &:focus
+        background-color: var(--colors-white)
+        outline: none
+
+.loader
+    position: absolute
+    right: var(--spacings-2)
+    padding: var(--spacings-1)
+    animation: searchbar-loader 2s ease-out infinite
+    color: var(--colors-primary-dark)
+
+.results-wrapper
+    position: absolute
+    top: calc(100% + var(--spacings-1)
+    box-shadow: var(--box-shadows-2)
+    background: var(--colors-white)
+    display: flex
+    flex-direction: column
+    border-radius: var(--border-radius-2)
+    overflow: hidden
+    color: var(--colors-black)
+    width: 100%
+
+.result
+    padding: var(--spacings-2)
+    border-bottom: solid 1px var(--colors-primary-half)
+    &.active, &:hover
+        background-color: var(--colors-primary-lighter)
+        color: var(--colors-white)
+    &:last-child
+        border-bottom: none
+
+.result_no-avatar
+    border-radius: 50%
+    margin-right: var(--spacings-1)
+    background: linear-gradient(var(--colors-secondary), var(--colors-primary))
+    color: var(--colors-white)
+    padding: 2px
+
+@keyframes searchbar-loader
+    from
+        transform: none
+    50%
+        transform: rotateZ(180DEG)
+        color: var(--colors-primary-light)
+    to
+        transform: rotateZ(360DEG)

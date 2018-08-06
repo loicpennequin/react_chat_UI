@@ -1,0 +1,21 @@
+.home
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    height: 100vh
+
+.toggle
+    font-size: var(--font-sizes-4)
+    background: transparent
+    margin-top: 1.5em
+    color: var(--colors-white)
+    padding: var(--spacings-2)
+    border: solid 1px var(--colors-white)
+    border-radius: var(--border-radius-3)
+    cursor: pointer
+    filter: drop-shadow(0 0 6px var(--colors-white-half))
+    font-family: var(--fonts-title)
+    &:hover, &:focus
+        filter: drop-shadow(0 0 6px var(--colors-white))
+        outline: none

@@ -1,0 +1,21 @@
+.form
+    background-color: transparent
+
+.btn-submit
+    display: block
+    margin-top: 1.5em
+    padding: var(--spacings-2)
+    background: linear-gradient(var(--colors-primary-light), var(--colors-primary))
+    color: white
+    border-radius: var(--border-radius-3)
+    font-family: var(--fonts-title)
+    width: 100%
+    font-size: var(--font-sizes-3)
+    border: none
+    cursor: pointer
+    transition: filter 0.3s
+    &:hover, &:focus
+        filter: brightness(85%)
+        outline: none
+    &:disabled
+        opacity: 0.5

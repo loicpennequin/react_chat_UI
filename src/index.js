@@ -1,8 +1,9 @@
-import "babel-polyfill";
+import 'babel-polyfill';
 
-import React    from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App      from './App.jsx';
+import App from './App.jsx';
+import fontAwesomeLibrary from './resources/services/iconsService.js';
 
 import './styles/app.sass';
 
@@ -13,4 +14,4 @@ import './styles/app.sass';
 // });
 
 const mountNode = document.getElementById('app');
-ReactDOM.render(<App/>, mountNode);
+ReactDOM.render(<App />, mountNode);

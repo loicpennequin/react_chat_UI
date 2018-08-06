@@ -3,16 +3,11 @@
 		"fonts": [
 			{
 				"family": "Open Sans",
-				"variants": [
-					"400",
-					"700"
-				]
+				"variants": ["400", "700", "900"]
 			},
 			{
 				"family": "Poiret One",
-				"variants": [
-					"400"
-				]
+				"variants": ["400"]
 			},
 			{
 				"family": "IBM Plex Mono"

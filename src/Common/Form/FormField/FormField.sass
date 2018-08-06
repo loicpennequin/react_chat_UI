@@ -1,0 +1,38 @@
+.form-field
+    padding: var(--spacings-2)
+
+.label
+    display: block
+    font-size: var(--font-sizes-2)
+    margin-bottom: .5em
+    color: var(--colors-primary)
+    &::first-letter
+        text-transform: uppercase
+
+.input-wrapper
+    position: relative
+
+.input
+    display: block
+    border: none
+    border-bottom: solid 1px #bbb
+    width: 100%
+    &:focus
+        outline: none
+        &+span
+            left: 0
+            width: 100%
+
+span
+    position: absolute
+    left: 50%
+    bottom: 0
+    width: 0
+    height: 1px
+    background-color: var(--colors-primary)
+    transition: all 0.3s
+
+.error
+    color: var(--colors-error)
+    font-size: var(--font-sizes-1)
+    margin-top: var(--spacings-1)

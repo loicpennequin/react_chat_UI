@@ -1,13 +1,45 @@
 import React, { Component } from 'react';
+import { subscribe } from 'react-contextual';
+import store from './../resources/store/store.js';
+import AuthService from './../resources/services/AuthService.js';
+import AppRoutes from './AppRoutes/AppRoutes.jsx';
+import Navbar from './Navbar/Navbar.jsx';
+import './Layout.sass';
 
+@subscribe(store)
 class Layout extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			loading: true
+		};
+	}
 
-    render() {
-        return (
-            <div className="theme-default">App</div>
-        );
-    }
+	async componentDidMount() {
+		await AuthService.verifyAuth();
+		this.setState({
+			loading: false
+		});
+	}
 
+	render() {
+		const UI = (
+			<React.Fragment>
+				{this.props.authenticated ? <Navbar /> : null}
+				<AppRoutes />
+			</React.Fragment>
+		);
+		return (
+			<div
+				styleName={`layout ${
+					this.props.authenticated ? 'with-navbar' : ''
+				}`}
+				className="theme-default"
+			>
+				{this.state.loading ? null : UI}
+			</div>
+		);
+	}
 }
 
 export default Layout;
