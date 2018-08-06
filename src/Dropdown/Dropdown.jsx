@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DropdownItem from './DropdownItem/DropdownItem.jsx';
 import DropdownHeader from './DropdownHeader/DropdownHeader.jsx';
+import './Dropdown.sass';
 
 class Dropdown extends Component {
 	static Header = DropdownHeader;
@@ -14,6 +16,17 @@ class Dropdown extends Component {
 		};
 	}
 
+	toggle() {
+		this.setState({ open: !this.state.open });
+	}
+
+	select(data) {
+		this.props.onSelect(data);
+		this.setState({
+			open: false
+		});
+	}
+
 	render() {
 		let header;
 		let items = [];
@@ -21,15 +34,24 @@ class Dropdown extends Component {
 			if (child.type.displayName === 'DropdownHeader') {
 				header = child;
 			} else if (child.type.displayName === 'DropdownItem') {
-				items.push(child);
+				items.push(
+					React.cloneElement(child, {
+						onSelect: data => this.select(data)
+					})
+				);
 			}
 		});
 
 		return (
-			<React.Fragment>
-				{header}
-				{items}
-			</React.Fragment>
+			<div styleName="dropdown">
+				<div styleName="header-wrapper" onClick={() => this.toggle()}>
+					{header}
+					<FontAwesomeIcon icon="caret-down" size="lg" fixedWidth />
+				</div>
+				{this.state.open ? (
+					<div styleName="items-wrapper">{items}</div>
+				) : null}
+			</div>
 		);
 	}
 }

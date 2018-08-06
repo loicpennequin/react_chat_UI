@@ -12,6 +12,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faComments } from '@fortawesome/free-solid-svg-icons/faComments';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons/faCaretRight';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons/faUserSecret';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons/faCheckCircle';
@@ -29,6 +30,7 @@ library.add(
 	faUserSecret,
 	faTimes,
 	faCaretRight,
+	faCaretDown,
 	faComments,
 	faPlus
 );

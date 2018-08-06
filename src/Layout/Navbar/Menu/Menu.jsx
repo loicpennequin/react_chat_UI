@@ -29,6 +29,10 @@ class Menu extends React.Component {
 			showAccountSettingsModal: !this.state.showAccountSettingsModal
 		});
 	}
+
+	test(data) {
+		console.log(data);
+	}
 	render() {
 		const menuHeader = (
 			<div styleName="menu-header">
@@ -71,25 +75,19 @@ class Menu extends React.Component {
 						fixedWidth
 					/>
 					Settings
-					<FontAwesomeIcon
-						icon="caret-right"
-						styleName={`caret ${
-							this.state.showSubMenu ? 'toggled' : ''
-						}`}
-						size="lg"
-						fixedWidth
-					/>
 				</button>
 				{this.state.showSubMenu ? (
 					<div styleName="submenu">
 						<div styleName="submenu_item">
-							<h3>Language</h3>
-							<Dropdown>
-								<Dropdown.Header />
+							<Dropdown onSelect={data => this.test(data)}>
+								<Dropdown.Header>
+									<h3>Language</h3>
+								</Dropdown.Header>
 								{constants.SUPPORTED_LANGUAGES.map(lang => (
 									<Dropdown.Item
 										key={'lang-' + lang.label}
 										text={lang.label}
+										data={lang.i18nLabel}
 									/>
 								))}
 							</Dropdown>
