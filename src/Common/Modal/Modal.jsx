@@ -24,7 +24,7 @@ class Modal extends Component {
 				>
 					<FontAwesomeIcon icon="times" size="3x" fixedWidth />
 				</button>
-				<div styleName="modal">{this.props.children}</div>
+				<div styleName="modal" className={this.props.className}>{this.props.children}</div>
 			</div>
 		);
 	}

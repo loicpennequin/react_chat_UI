@@ -31,6 +31,7 @@ let w = wretch(constants.API_URL + '/api')
 	);
 
 export default {
+	w: w,
 	get: (url, params) =>
 		w
 			.url(url)

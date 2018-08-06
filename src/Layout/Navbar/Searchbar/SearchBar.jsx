@@ -18,8 +18,8 @@ const SearchBar = props => (
 			) : null}
 			{props.focused ? (
 				<div styleName="results-wrapper">
-					{props.searchResults.map(result => (
-						<div styleName="result">
+					{props.searchResults.map((result, i) => (
+						<div styleName="result" key={'searchbar-result-' + i}>
 							{result.avatar_url ? null : (
 								<FontAwesomeIcon
 									icon="user-secret"

@@ -9,6 +9,7 @@ import { faPowerOff } from '@fortawesome/free-solid-svg-icons/faPowerOff';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faAdjust } from '@fortawesome/free-solid-svg-icons/faAdjust';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons/faCaretRight';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons/faUserSecret';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons/faCheckCircle';
@@ -24,7 +25,8 @@ library.add(
 	faChevronRight,
 	faAdjust,
 	faUserSecret,
-	faTimes
+	faTimes,
+	faCaretRight
 );
 
 export default library;

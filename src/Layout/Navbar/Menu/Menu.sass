@@ -1,3 +1,5 @@
+@import "./../../../styles/utils/mixins.sass"
+
 .menu-wrapper
     position: fixed
     top: 0
@@ -9,12 +11,14 @@
 
 
 .menu
-    transition: all 0.5s
+    transition: all 0.4s cubic-bezier(.99,.08,.53,.79)
     background-color: var(--colors-white)
     width: 250px
     height: 100%
     color: var(--colors-black)
     box-shadow: .25em 0 15px 0 var(--colors-black-half)
+    display: flex
+    flex-direction: column
 
 .menu-btn
     padding: 0
@@ -26,6 +30,7 @@
     margin-bottom: 3em
     position: relative
     cursor: pointer
+    align-self: flex-end
     &::after
         content: ''
         position: absolute
@@ -40,7 +45,7 @@
 
 .menu-item
     font-family: var(--fonts-primary)
-    font-size: var(--font-sizes-3)
+    font-size: var(--font-sizes-2)
     text-align: left
     display: block
     padding: var(--spacings-2) var(--spacings-2) var(--spacings-2) var(--spacings-3)
@@ -52,7 +57,25 @@
     &:hover, &:focus
         outline: none
         background-color: var(--colors-primary-lighter)
+    +mobile
+        font-size: var(--font-sizes-4)
+
 
 .menu-item_icon
     margin-right: var(--spacings-3)
     color: var(--colors-primary)
+
+.caret
+    color: black
+    transition: all 0.2s ease-in
+    &.toggled
+        transform: rotateZ(90DEG)
+
+.submenu
+    padding-left: var(--spacings-5)
+    margin-top: -1em
+    margin-bottom: 1em
+    +mobile
+        font-size: var(--font-sizes-3)
+    .submenu_item
+        margin-bottom: .5em

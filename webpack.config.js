@@ -86,7 +86,8 @@ module.exports = env => ({
 	output: {
 		filename: '[name].[hash].js',
 		chunkFilename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
 	optimization: {
 		runtimeChunk: 'single',

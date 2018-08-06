@@ -1,7 +1,5 @@
 {
   "common": {
-    "languages" : "Languages",
-    "themes": "Themes",
-    "current page" : "This is the {{page}} Page."
+    
   }
 }

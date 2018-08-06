@@ -17,6 +17,18 @@ class UserService {
 			return err;
 		}
 	}
+
+	static async update(id, formData){
+		try {
+			return await api.w
+				.url('/users/' + id)
+				.auth(`Bearer ${localStorage.getItem('token')}`)
+				.body(formData)
+				.put()
+		} catch (err) {
+			return err;
+		}
+	}
 }
 
 export default UserService;
