@@ -43,7 +43,9 @@ $themeBaseValues: (
 			circle: $border-radius-circle
 		),
 		breakpoints: (
-			mobile: 568px
+			mobile: 568px,
+			desktop: 1100px,
+			hd: 1400px
 		)
 	)
 );

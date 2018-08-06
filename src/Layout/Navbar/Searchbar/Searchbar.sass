@@ -46,22 +46,18 @@
     overflow: hidden
     color: var(--colors-black)
     width: 100%
-
+    z-index: 10
+    
 .result
     padding: var(--spacings-2)
     border-bottom: solid 1px var(--colors-primary-half)
+    display: flex
+    align-items: center
     &.active, &:hover
         background-color: var(--colors-primary-lighter)
         color: var(--colors-white)
     &:last-child
         border-bottom: none
-
-.result_no-avatar
-    border-radius: 50%
-    margin-right: var(--spacings-1)
-    background: linear-gradient(var(--colors-secondary), var(--colors-primary))
-    color: var(--colors-white)
-    padding: 2px
 
 @keyframes searchbar-loader
     from

@@ -22,8 +22,10 @@ class Navbar extends Component {
 	}
 
 	handleSearchbarFocus(value) {
-		this.setState({
-			searchbarFocused: value
+		setTimeout(() => {
+			this.setState({
+				searchbarFocused: value
+			});
 		});
 	}
 

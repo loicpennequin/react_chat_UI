@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Searchbar.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Avatar from './../../../Common/Avatar/Avatar.jsx';
 
 const SearchBar = props => (
 	<React.Fragment>
@@ -19,16 +21,15 @@ const SearchBar = props => (
 			{props.focused ? (
 				<div styleName="results-wrapper">
 					{props.searchResults.map((result, i) => (
-						<div styleName="result" key={'searchbar-result-' + i}>
-							{result.avatar_url ? null : (
-								<FontAwesomeIcon
-									icon="user-secret"
-									styleName="result_no-avatar"
-									size="2x"
-								/>
-							)}
-							{result.username}
-						</div>
+						<Link
+							to={'/profile/' + result.id}
+							key={'searchbar-result-' + i}
+						>
+							<div styleName="result">
+								<Avatar size="sm" src={result.avatar_url} />
+								{result.username}
+							</div>
+						</Link>
 					))}
 				</div>
 			) : null}

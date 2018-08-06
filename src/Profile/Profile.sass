@@ -1,0 +1,85 @@
+@import "./../styles/utils/mixins.sass"
+
+.clip
+    --header-h: 150px
+    --c: 35px
+    clip-path: polygon(0 0, 0 calc(var(--header-h) - var(--c)), var(--c) var(--header-h),  0 calc(var(--header-h) + var(--c)), 0 105%, 100% 105%, 100% calc(var(--header-h) + var(--c)), calc(100% - var(--c)) var(--header-h), 100% calc(var(--header-h) - var(--c)), 100% 0)
+    +desktop-only
+        max-width: 900px
+        margin: 0 auto
+.profile-wrapper
+    position: relative
+    &::after
+        content: ""
+        display: block
+        clear: both
+
+.action-btn
+    position: absolute
+    top: var(--spacings-3)
+    right: var(--spacings-3)
+    background-color: var(--colors-primary-light)
+    border: none
+    color: white
+    border-radius: 50%
+    padding: var(--spacings-2)
+    box-shadow: var(--box-shadows-1)
+    z-index: 2
+
+.profile-header-wrapper
+    overflow: hidden
+    height: var(--header-h)
+
+.profile-header
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), linear-gradient(130DEG, var(--colors-primary-half), var(--colors-secondary-half)), var(--bg)
+    background-size: 100%
+    background-position: center
+    background-repeat: no-repeat
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: var(--spacings-3)
+    height: 100%
+    filter: blur(5px)
+    transform: scale(1.25)
+
+.profile-content
+    position: relative
+    padding: var(--spacings-3)
+
+.avatar
+    position: absolute
+    left: 50%
+    top: 0
+    transform: translate(-50%, -50%)
+    filter: drop-shadow(0 0 5px var(--colors-black-half))
+    border: solid 2px var(--colors-white)
+
+.profile-infos
+    margin-top: var(--spacings-5)
+    text-align: center
+    position: relative
+    h1
+        text-align: center
+        font-family: var(--fonts-title)
+        font-size: var(--font-sizes-7)
+        display: inline-block
+        position: relative
+        padding-bottom: var(--spacings-2)
+        margin-bottom: .5em
+        &::after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 50%
+            height: 3px
+            background: linear-gradient(to right, var(--colors-primary), var(--colors-secondary))
+            width: 50%
+            transform: translateX(-50%)
+    h2
+        margin-bottom: 1.5em
+
+.friends-count
+    float: right
+    color: var(--colors-primary)
+    margin-bottom: var(--spacings-2)
