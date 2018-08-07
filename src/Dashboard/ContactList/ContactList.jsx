@@ -7,17 +7,21 @@ import './ContactList.sass'
 @subscribe(store)
 class ContactList extends Component {
 
+    isOnline(id){
+        return this.props.onlineContacts.some( c => c === id);
+    }
     render() {
         const contacts = this.props.currentUser.contacts;
-        return (
+        return contacts ? (
             <div styleName="contact-list">
                 {contacts.map(c => (
                     <div styleName="contact" key={'contact-' + c.user.username}>
                         <UserThumbnail user={c.user}/>
+                        <div styleName={`is-online ${this.isOnline(c.user.id) ? 'online' : 'offline'}`}></div>
                     </div>
                 ))}
             </div>
-        );
+        ): null;
     }
 
 }

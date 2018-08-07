@@ -5,3 +5,14 @@
 
 .contact
     margin: var(--spacings-3)
+
+.is-online
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    border: solid 1px var(--colors-white-half)
+    box-shadow: -2px -2px 2px 1px inset var(--colors-black-half) 
+    &.offline
+        background: linear-gradient(var(--colors-error-light), var(--colors-error))
+    &.online
+        background: linear-gradient(var(--colors-success-light), var(--colors-success))
