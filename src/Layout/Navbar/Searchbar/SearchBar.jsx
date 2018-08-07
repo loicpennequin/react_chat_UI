@@ -10,7 +10,7 @@ const SearchBar = props => (
 			<FontAwesomeIcon icon="search" styleName="icon" size="2x" />
 			<input
 				styleName="searchbar"
-				type="text"
+				type="text" placeholder="Search an user"
 				onChange={e => props.onChange(e)}
 				onFocus={() => props.toggle(true)}
 				onBlur={() => props.toggle(false)}

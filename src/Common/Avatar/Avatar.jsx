@@ -7,13 +7,13 @@ const Avatar = props =>
 	props.src ? (
 		<img
 			src={props.src}
-			styleName={`avatar ${props.size}`}
+			styleName={`avatar ${props.size ? props.size : ''}`}
 			className={props.className}
 		/>
 	) : (
 		<FontAwesomeIcon
 			icon="user-secret"
-			styleName={`avatar ${props.size}`}
+			styleName={`avatar ${props.size ? props.size : ''}`}
 			className={props.className}
 		/>
 	);

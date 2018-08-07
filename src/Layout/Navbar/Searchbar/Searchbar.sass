@@ -24,6 +24,9 @@
     border-bottom-right-radius: var(--border-radius-3)
     background-color: var(--colors-secondary-half)
     transition: all 0.3s
+    &::placeholder
+        color: var(--colors-white)
+        font-style: italic
     &:focus
         background-color: var(--colors-white)
         outline: none
@@ -47,7 +50,7 @@
     color: var(--colors-black)
     width: 100%
     z-index: 10
-    
+
 .result
     padding: var(--spacings-2)
     border-bottom: solid 1px var(--colors-primary-half)

@@ -9,6 +9,7 @@ import constants from './../../../resources/services/constants.js';
 import Dropdown from './../../../Common/Dropdown/Dropdown.jsx';
 import AccountSettingsModal from './AccountSettingsModal/AccountSettingsModal.jsx';
 import Avatar from './../../../Common/Avatar/Avatar.jsx';
+import FriendRequestManager from './FriendRequestManager/FriendRequestManager.jsx'
 import css from './Menu.sass';
 
 @subscribe(store)
@@ -38,7 +39,10 @@ class Menu extends React.Component {
 	render() {
 		const menuHeader = (
 			<div styleName="menu-header">
-				<Avatar src={this.props.currentUser.avatar_url} size="lg" />
+				<Link to="/dashboard" onClick={() => this.props.onClose()}
+>
+					<Avatar src={this.props.currentUser.avatar_url} size="lg" />
+				</Link>
 				<button
 					styleName="menu-btn"
 					onClick={() => this.props.onClose()}
@@ -147,6 +151,10 @@ class Menu extends React.Component {
 						{profileLink}
 						{settingsMenu}
 						{logoutButton}
+						<div styleName="menu-item">
+							<h3>Friend Requests</h3>
+							<FriendRequestManager />
+						</div>
 					</aside>
 				</div>
 			</React.Fragment>

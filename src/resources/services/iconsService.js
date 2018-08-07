@@ -16,6 +16,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons/faUserSecret';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons/faCheckCircle';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 
 library.add(
 	faExclamationTriangle,
@@ -32,7 +33,8 @@ library.add(
 	faCaretRight,
 	faCaretDown,
 	faComments,
-	faPlus
+	faPlus,
+	faCheck
 );
 
 export default library;

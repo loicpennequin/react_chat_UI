@@ -5,8 +5,11 @@
     --c: 35px
     clip-path: polygon(0 0, 0 calc(var(--header-h) - var(--c)), var(--c) var(--header-h),  0 calc(var(--header-h) + var(--c)), 0 105%, 100% 105%, 100% calc(var(--header-h) + var(--c)), calc(100% - var(--c)) var(--header-h), 100% calc(var(--header-h) - var(--c)), 100% 0)
     +desktop-only
-        max-width: 900px
+        max-width: 600px
         margin: 0 auto
+    +hd-only
+        max-width: 900px
+
 .profile-wrapper
     position: relative
     &::after
@@ -25,6 +28,10 @@
     padding: var(--spacings-2)
     box-shadow: var(--box-shadows-1)
     z-index: 2
+    cursor: pointer
+    &[disabled]
+        opacity: 0.33
+        box-shadow: none
 
 .profile-header-wrapper
     overflow: hidden

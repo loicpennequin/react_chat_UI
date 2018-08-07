@@ -3,6 +3,7 @@ import { subscribe } from 'react-contextual';
 import store from './../resources/store/store.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import UserService from './../resources/services/UserService.js';
+import ContactRequestService from './../resources/services/ContactRequestService.js';
 import Card from './../Common/Card/Card.jsx';
 import Avatar from './../Common/Avatar/Avatar.jsx';
 import css from './Profile.sass';
@@ -22,29 +23,41 @@ class Profile extends Component {
 		this.state = {
 			user: { contacts: [] },
 			isOwnProfile: false,
-			isFriend: false
+			isFriend: false,
+			canAdd: true
 		};
 	}
 
-	async getData() {
-		const user = await UserService.fetch(this.props.match.params.id);
-		this.setState({
-			user,
-			isOwnProfile: user.id === this.props.currentUser.id,
-			isFriend: user.contacts.some(
-				c => c.contact_id === this.props.currentUser.id
-			)
-		});
-	}
-
-	componentDidMount() {
-		this.getData();
+	async componentDidMount() {
+		await this.getData();
 	}
 
 	async componentDidUpdate(prevProps, prevState) {
 		if (prevState.id !== this.state.id) {
 			this.getData();
 		}
+	}
+
+	async getData() {
+		const user = await UserService.fetch(this.props.match.params.id);
+		await this.setState({
+			user,
+			isOwnProfile: user.id === this.props.currentUser.id,
+			isFriend: user.contacts.some(
+				c => c.contact_id === this.props.currentUser.id
+			)
+		});
+		const canAdd = this.props.currentUser.sentRequests.every(req => req.sendee_id !== this.state.user.id);
+		this.setState({ canAdd });
+	}
+
+	async sendRequest(){
+		await ContactRequestService.sendRequest({
+			sender_id: this.props.currentUser.id,
+			sendee_id: this.state.user.id
+		})
+		await this.props.setCurrentUser(await UserService.fetch(this.props.currentUser.id));
+		await this.getData();
 	}
 
 	render() {
@@ -62,7 +75,7 @@ class Profile extends Component {
 								/>
 							</button>
 						) : (
-							<button styleName="action-btn">
+							<button styleName="action-btn" onClick={() => this.sendRequest()} disabled={!this.state.canAdd}>
 								<FontAwesomeIcon
 									icon="plus"
 									size="2x"

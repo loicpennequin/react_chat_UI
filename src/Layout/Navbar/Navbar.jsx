@@ -26,7 +26,7 @@ class Navbar extends Component {
 			this.setState({
 				searchbarFocused: value
 			});
-		});
+		},value ? 0 : 250);
 	}
 
 	toggleMenu() {
