@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { subscribe } from 'react-contextual';
 import store from './../../../resources/store/store.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import i18next from './../../../resources/services/i18NextService.js';
 import AuthService from './../../../resources/services/AuthService.js';
 import constants from './../../../resources/services/constants.js';
-import Dropdown from './../../../Dropdown/Dropdown.jsx';
+import Dropdown from './../../../Common/Dropdown/Dropdown.jsx';
 import AccountSettingsModal from './AccountSettingsModal/AccountSettingsModal.jsx';
 import Avatar from './../../../Common/Avatar/Avatar.jsx';
 import css from './Menu.sass';
@@ -30,9 +31,10 @@ class Menu extends React.Component {
 		});
 	}
 
-	test(data) {
-		console.log(data);
+	selectLanguage(lang) {
+		() => i18next.changeLanguage(lang)
 	}
+
 	render() {
 		const menuHeader = (
 			<div styleName="menu-header">
@@ -79,7 +81,7 @@ class Menu extends React.Component {
 				{this.state.showSubMenu ? (
 					<div styleName="submenu">
 						<div styleName="submenu_item">
-							<Dropdown onSelect={data => this.test(data)}>
+							<Dropdown onSelect={data => this.selectLanguage(data)}>
 								<Dropdown.Header>
 									<h3>Language</h3>
 								</Dropdown.Header>
@@ -93,14 +95,18 @@ class Menu extends React.Component {
 							</Dropdown>
 						</div>
 						<div styleName="submenu_item">
-							<h3>Theme</h3>
-							<ul>
+							<Dropdown onSelect={data => this.props.setTheme(data)}>
+								<Dropdown.Header>
+									<h3>Theme</h3>
+								</Dropdown.Header>
 								{constants.THEMES.map(theme => (
-									<button key={'theme-' + theme}>
-										{theme}
-									</button>
+									<Dropdown.Item
+										key={'theme-' + theme}
+										text={theme}
+										data={theme}
+									/>
 								))}
-							</ul>
+							</Dropdown>
 						</div>
 						<div styleName="submenu_item">
 							<h3

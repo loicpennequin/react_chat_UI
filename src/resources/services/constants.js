@@ -7,5 +7,5 @@ export default {
         { i18nLabel : 'fr', label: 'Français'},
         { i18nLabel : 'en', label: 'English'},
     ],
-	THEMES : ['Default']
+	THEMES : ['default', 'summer']
 };

@@ -34,7 +34,7 @@ class Layout extends Component {
 				styleName={`layout ${
 					this.props.authenticated ? 'with-navbar' : ''
 				}`}
-				className="theme-default"
+				className={"theme-" + this.props.selectedTheme}
 			>
 				{this.state.loading ? null : UI}
 			</div>
