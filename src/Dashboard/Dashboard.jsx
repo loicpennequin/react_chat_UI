@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { subscribe } from 'react-contextual';
 import store from './../resources/store/store.js';
+import ContactList from './ContactList/ContactList.jsx';
 
 @subscribe(store)
 class Dashboard extends Component {
 	render() {
-		return <div>Hello, {this.props.currentUser.username} !</div>;
+		return (
+			<React.Fragment>
+				<div>Welcome to React Messenger , {this.props.currentUser.username} !</div>;
+				<ContactList />
+			</React.Fragment>
+		)
 	}
 }
 
