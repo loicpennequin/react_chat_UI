@@ -16,7 +16,11 @@ class Layout extends Component {
 	}
 
 	async componentDidMount() {
-		await AuthService.verifyAuth();
+		try {
+			await AuthService.verifyAuth();
+		} catch (err) {
+			console.log('something went wrong');
+		}
 		this.setState({
 			loading: false
 		});
@@ -34,7 +38,7 @@ class Layout extends Component {
 				styleName={`layout ${
 					this.props.authenticated ? 'with-navbar' : ''
 				}`}
-				className={"theme-" + this.props.selectedTheme}
+				className={'theme-' + this.props.selectedTheme}
 			>
 				{this.state.loading ? null : UI}
 			</div>

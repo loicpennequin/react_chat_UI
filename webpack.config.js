@@ -3,7 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const GoogleFontsPlugin = require('google-fonts-plugin').default;
 const webpack = require('webpack');
-const sass = require('node-sass');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+	.BundleAnalyzerPlugin;
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = env => ({
 	entry: {
@@ -81,8 +83,11 @@ module.exports = env => ({
 			template: 'src/index.html'
 		}),
 		new webpack.HotModuleReplacementPlugin(),
-		new GoogleFontsPlugin('google-fonts.config.json')
-	],
+		new GoogleFontsPlugin('google-fonts.config.json'),
+		env.NODE_ENV === 'production' &&
+			new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+		env.NODE_ENV === 'production' && new CompressionPlugin()
+	].filter(plugin => plugin !== false),
 	output: {
 		filename: '[name].[hash].js',
 		chunkFilename: '[name].bundle.js',

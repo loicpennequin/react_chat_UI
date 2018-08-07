@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { debounce } from 'lodash';
+import debounce from './../../resources/utils/debounce.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSSTransition } from 'react-transition-group';
 import UserService from './../../resources/services/UserService.js';
@@ -26,7 +26,7 @@ class Navbar extends Component {
 			this.setState({
 				searchbarFocused: value
 			});
-		},value ? 0 : 250);
+		}, value ? 0 : 250);
 	}
 
 	toggleMenu() {

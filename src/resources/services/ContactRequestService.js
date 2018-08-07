@@ -1,5 +1,6 @@
 import store from './../store/store.js';
 import api from './RESTService.js';
+import socket from './Io.js';
 
 class ContactRequestService {
 	static async sendRequest(body) {
@@ -12,7 +13,8 @@ class ContactRequestService {
 
 	static async acceptRequest(id) {
 		try {
-			return await api.get(`/requests/${id}/accept`);
+			await api.get(`/requests/${id}/accept`);
+			socket.emit('accepted contact request');
 		} catch (err) {
 			return err;
 		}

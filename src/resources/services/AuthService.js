@@ -20,7 +20,7 @@ class AuthService {
 			const uid = localStorage.getItem('uid');
 			const user = await UserService.fetch(uid);
 			store.state.setCurrentUser(user);
-			socket.emit('user logged in', {id: uid});
+			socket.emit('user logged in', { id: uid });
 		}
 	}
 
@@ -30,7 +30,7 @@ class AuthService {
 			await store.state.login();
 			const user = await UserService.fetch(response.userId);
 			await store.state.setCurrentUser(user);
-			socket.emit('user logged in', {id: response.userId});
+			socket.emit('user logged in', { id: response.userId });
 		}
 	}
 
@@ -38,6 +38,7 @@ class AuthService {
 		localStorage.removeItem('token');
 		localStorage.removeItem('uid');
 		store.state.logout();
+		socket.emit('user logged off');
 	}
 }
 
