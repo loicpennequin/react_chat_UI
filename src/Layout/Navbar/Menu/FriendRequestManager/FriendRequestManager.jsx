@@ -25,6 +25,7 @@ class FriendRequestManager extends Component {
 
     render() {
         const { currentUser } = this.props;
+        console.log(currentUser);
         return (
             <React.Fragment>
                 <h4>Recieved({currentUser.recievedRequests.length})</h4>

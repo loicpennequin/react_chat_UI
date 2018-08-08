@@ -8,7 +8,6 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<div>Welcome to React Messenger , {this.props.currentUser.username} !</div>;
 				<ContactList />
 			</React.Fragment>
 		)

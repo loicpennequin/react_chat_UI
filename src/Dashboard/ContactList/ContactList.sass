@@ -1,7 +1,9 @@
+@import "./../../styles/utils/mixins.sass"
+
 .contact-list
     display: flex
     flex-wrap: wrap
-    justify-content: space-around
+    justify-content: center
 
 .contact
     margin: var(--spacings-3)
@@ -21,3 +23,25 @@
     position: absolute
     top: 4px
     right: 4px
+
+.open-chat-btn
+    width: 100%
+    padding: var(--spacings-2) 0
+    color: var(--colors-white)
+    background-color: var(--colors-primary)
+    border: none
+    cursor: pointer
+    &[disabled]
+        background-color: var(--colors-white-dark)
+        opacity: 0.5
+
+.no-contacts
+    font-size: var(--font-sizes-3)
+    background-color: var(--colors-white-half)
+    +desktop-only
+        max-width: 600px
+        margin: 0 auto
+    +hd-only
+        max-width: 900px
+    p
+        padding: var(--spacings-3)

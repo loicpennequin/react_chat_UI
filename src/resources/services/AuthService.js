@@ -38,6 +38,7 @@ class AuthService {
 		localStorage.removeItem('token');
 		localStorage.removeItem('uid');
 		store.state.logout();
+		store.state.setTheme('default');
 		socket.emit('user logged off');
 	}
 }
